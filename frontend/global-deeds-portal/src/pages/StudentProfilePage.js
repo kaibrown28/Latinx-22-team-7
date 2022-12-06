@@ -40,8 +40,8 @@ export const StudentProfilePage = () => {
     return (
         <div className="content-container">
             <h1>User Profile</h1>
-            {showSuccessMessage && <div classname ="success">Changes saved!</div>}
-            {showErrorMessage && <div classname ="failure">Oops! We couldn't save your changes.</div>}
+            {showSuccessMessage && <div className ="success">Changes saved!</div>}
+            {showErrorMessage && <div className ="failure">Oops! We couldn't save your changes.</div>}
 
             <label>
                 #profileinput:
