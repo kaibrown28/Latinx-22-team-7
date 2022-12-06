@@ -1,15 +1,9 @@
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        
-        <p>
-          
-        </p>
-      
-      </header>
-    </div>
-  );
-}
+import { Routes } from './Routes';
 
-export default App;
+export const App = () => {
+    return (
+      <div className="page-container">
+          <Routes />
+      </div>
+    );
+}
