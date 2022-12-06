@@ -1,18 +1,18 @@
-import { BrowserRouter as Router, Route, Switch } from  'react-router-dom';
-import { UserInfoPage } from './pages/UserInfoPage';
+import { BrowserRouter as Router, Route } from  'react-router-dom';
+import { StudentProfilePage } from './pages/StudentProfilePage';
 import { LogInPage } from './pages/LogInPage';
 
 export const Routes = () => {
     return (
         <Router>
-            <Switch>
+            
                 <Route path="/" exact>
-                    <UserInfoPage />
+                    <StudentProfilePage />
                 </Route>
                 <Route path="/login">
                     <LogInPage />
                 </Route>
-            </Switch>
+            
         </Router>
     )
 }

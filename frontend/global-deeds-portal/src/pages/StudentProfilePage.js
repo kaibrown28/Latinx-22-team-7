@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 export const StudentProfilePage = () => {
-    const history = useHistory();
+    const navigate = useNavigate();
 
     //setting state for profile page
     const [interests, setInterests] = useState('');
