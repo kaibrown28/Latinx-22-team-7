@@ -7,7 +7,7 @@ export const Home = () => {
 return (
     <div>
         Are you working?
-        Welcome to the portal
+        <h2>Welcome to the portal</h2>
     </div>
 )
 };
