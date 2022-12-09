@@ -25,13 +25,13 @@ export const StudentSignUp = () => {
 
     return (
         <div className="content-container">
-            <h1>Welcome to the portal</h1>
+            <h1>Sign Up</h1>
             {/* displays a div when wrong credentials entered */}
             {errorMessage && <div className="fail">{errorMessage}</div>}
 
             <input value={emailValue} onChange={event => setEmailValue(event.target.value)}placeholder="name@email.com" />
             <input value={passwordValue} onChange={event => setPasswordValue(event.target.value)} type="password" placeholder="password" />
-            <input value={confirmPasswordValue} onChange={event => setConfirmPasswordValue(event.target.value)} type="password" placeholder="password" />
+            <input value={confirmPasswordValue} onChange={event => setConfirmPasswordValue(event.target.value)} type="password" placeholder="confirm password" />
             <button 
             disabled={
                 !emailValue || !passwordValue ||
