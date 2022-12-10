@@ -1,19 +1,13 @@
 //------requirements and dependencies---------//
-
-const express = require('express')
-const bodyParser = require('body-parser')
+require("dotenv").config()
+const express = require("express")
+const registerMiddleware = require("../utils/middleware")
 const db = require('../views/queries')
 const app = express()
-const cors = require('cors')
 
-//redux dependencies
-// const webpack = require('webpack')
-// const webpackDevMiddleware = require('webpack-dev-middleware')
-// const webpackHotMiddleware = require('webpack-hot-middleware')
-// const config = require('./webpack.config')
 
-//variables
-const port = 3000
+//reading .env file
+const {PORT = 3000} = process.env
 
   //listeners
   app.listen(port, () => {
@@ -22,21 +16,7 @@ const port = 3000
 
 //--------MIDDLEWARE-------------//
 //body parser extracts the entire body portion of an incoming request
-app.use(bodyParser.json())
-app.use(
-    bodyParser.urlencoded({
-        extended:true,
-    })
-)
-
-app.use(cors())
-app.use(express.json())
-
-//redux middleware
-// const compilier = webpack(config)
-// app.use(webpackDevMiddleware(compilier, {noInfo: true, publicPath: config.output.publicPath}))
-// app.use(webpackHotMiddleware(compilier))
-//root endpoint
+registerMiddleware(app)
 
 //write a test message in this response
 app.get('/', (request, response) => {
