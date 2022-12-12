@@ -1,7 +1,11 @@
+//dependencies
 const express = require("express")
 const cookieParser = require("cookie-parser")
 const morgan = requires("morgan")
 const cors = require("cors")
+
+//models
+const User = require("../models/User")
 
 
 const corsOptions = requires=("./cors")
@@ -9,9 +13,11 @@ const HomeController = require("../controllers/HomeController")
 
 // "function to create context property in every request with shared data"
 const applicationContext = (request, response, next) => {
-    // "data to share can be added in this object"
-    request.context = {}
-    // "move on to next middleware"
+    // "data to share can be added in this object" ADD FURTHER MODELS HERE
+    request.context = {
+        models: {User}
+    }
+
     next()
 }
 
