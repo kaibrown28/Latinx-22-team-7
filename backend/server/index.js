@@ -10,8 +10,8 @@ const app = express()
 const {PORT = 3000} = process.env
 
   //listeners
-  app.listen(port, () => {
-    console.log(`The app is listening on port ${port}.`)
+  app.listen(PORT, () => {
+    console.log(`The app is listening on port ${PORT}.`)
 })
 
 //--------MIDDLEWARE-------------//
