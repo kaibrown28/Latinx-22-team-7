@@ -17,17 +17,3 @@ const {PORT = 3000} = process.env
 //--------MIDDLEWARE-------------//
 //body parser extracts the entire body portion of an incoming request
 registerMiddleware(app)
-
-//write a test message in this response
-app.get('/', (request, response) => {
-    response.json({ info: 'Node.js, Express, and Postgres API' })
-  })
-
-
-
-//setting http requests for a table
-// app.get('/request', db.getRequest)
-// app.get('/request/:id', db.getRequestById)
-// app.post('/request/', db.CreateRequest)
-// app.put('/request/:id', db.updateRequest)
-// app.delete('/request/:id', db.deleteRequest)

@@ -1,14 +1,14 @@
-const { response } = require('express');
+// const { response } = require('express');
 
-//creating the pgbouncer pool to connect to POSTGRES database
-const Pool = require('pg').Pool
-const pool = new Pool({
-    user: process.env.user,
-    host: process.env.host,
-    database: process.env.db,
-    password:process.env.password,
-    port: process.env.port
-});
+// //creating the pgbouncer pool to connect to POSTGRES database
+// const Pool = require('pg').Pool
+// const pool = new Pool({
+//     user: process.env.user,
+//     host: process.env.host,
+//     database: process.env.db,
+//     password:process.env.password,
+//     port: process.env.port
+// });
 
 // //get all project admins
 // const getStudent = (req,res) => {
@@ -32,16 +32,16 @@ const pool = new Pool({
 // };
 
 //create a project admin
-const CreateStudent = (req,res) => {
-    const {email, name, lookingforvol, phone, projects} = req.body
+// const CreateStudent = (req,res) => {
+//     const {email, name, lookingforvol, phone, projects} = req.body
 
-    pool.query('INSERT INTO students (email, name, lookingforvol, phone, projects) VALUES ($1, $2, $3, $4, $5)', [email, name, lookingforvol, phone, projects], (error, results) =>{
-        if (error) {
-            throw error
-        }
-        res.status(201).send(`User added.`)
-    })
-};
+//     pool.query('INSERT INTO students (email, name, lookingforvol, phone, projects) VALUES ($1, $2, $3, $4, $5)', [email, name, lookingforvol, phone, projects], (error, results) =>{
+//         if (error) {
+//             throw error
+//         }
+//         res.status(201).send(`User added.`)
+//     })
+// };
 
 // //update project administrator
 // const updateStudent = (req,res) => {

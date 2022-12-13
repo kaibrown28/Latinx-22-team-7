@@ -11,7 +11,7 @@ const Company = sequelize.define("Company", {
     zipCode: {type: DataTypes.INTEGER, allowNull: false},
     details: {type: DataTypes.STRING, allowNull: false},
     role: {type: DataTypes.STRING, allowNull: false, defaultValue: "general"}
-    }, {tableName: "Companies", timestamps: true})
+    }, {tableName: "companies", timestamps: true})
 
 async function createTable(){
     await Company.sync()

@@ -1,7 +1,7 @@
 const sequelize = require("../connection/db")
 const {DataTypes} = require("sequelize")
 
-const Student = sequelize.define("Student", {
+const Students = sequelize.define("Student", {
     firstName: {type: DataTypes.STRING, allowNull: false, unique: true},
     lastName: {type: DataTypes.STRING, allowNull: false, unique: true},
     email: {type: DataTypes.STRING, allowNull: false},
@@ -19,15 +19,15 @@ const Student = sequelize.define("Student", {
     essay: {type: DataTypes.TEXT, allowNull: true},
     aboutMe: {type: DataTypes.TEXT, allowNull: false},
     role: {type: DataTypes.STRING, allowNull: false, defaultValue: "student"},
-    }, {tableName: "users", timestamps: true})
+    }, {tableName: "students", timestamps: true})
 
 async function createTable(){
-    await Student.sync()
+    await Students.sync()
 }
 
 createTable()
 
-module.exports = Student
+module.exports = Students
 
 
 

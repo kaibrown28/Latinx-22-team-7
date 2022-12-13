@@ -1,6 +1,15 @@
 require("dotenv").config();
 const { Sequelize } = require("sequelize")
-const sequelize = new Sequelize(process.env.DATABASE_URL)
+const sequelize = new Sequelize(process.env.HOST, process.env.USER, process.env.PASSWORD, {
+    port:5432,
+    host: 'localhost',
+    dialect: 'postgres',
+    pool: {
+        max: 5,
+        min: 0,
+        idle: 10000
+    },
+});
 
 //checking for established connection
 async function checkConnection() {
