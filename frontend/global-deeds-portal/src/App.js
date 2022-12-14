@@ -4,7 +4,7 @@ import { BrowserRouter, Routes, Route} from 'react-router-dom';
 //page routes
 import { Home } from './pages/Home'
 import { LogInPage } from './pages/LogInPage'
-import { TestPage } from './pages/test'
+
 import { StudentProfilePage } from './pages/StudentProfilePage'
 import { StudentSignUp } from './pages/StudentSignUp';
 import { CompanySignUp } from './pages/CompanySignUp';

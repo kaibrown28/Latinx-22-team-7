@@ -1,9 +1,12 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-
+import { useToken } from '../auth/useToken';
+import axios from 'axios'
 
 export const StudentSignUp = () => {
 //state for error messages for wrong credentials    
+    const [token, setToken] = useToken();
+
     const [errorMessage, setErrorMessage] = useState('');
     
     
@@ -13,7 +16,13 @@ export const StudentSignUp = () => {
     const navigate = useNavigate();
     
     const onSignUpClicked = async () => {
-        alert('Not coded yet');
+       const response = await axios.post('/api/signup', {
+        email:emailValue,
+        password:passwordValue,
+       });
+       const { token } = response.data;
+       setToken(token);
+       navigate('/')
     }
 
     const navigateToLogIn = () => {
