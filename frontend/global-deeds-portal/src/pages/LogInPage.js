@@ -6,7 +6,12 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import { NavBar } from '../components/Navbar';
+import Image from 'react-bootstrap/Image';
+import { Header } from '../components/Header';
+import { Footer } from '../components/Footer';
+
+
+
 
 
 export const LogInPage = () => {
@@ -34,44 +39,52 @@ export const LogInPage = () => {
 
     return (
         <>
-        <NavBar />
+        <Header />
         <h1 class="lead display-4">Let's Get Started!</h1>
-        <Form >
+        <Row>
+            <Col className='mx-6 my-3' >
+        <Form class="border border-warning" >
             
             {/* displays a div when wrong credentials entered */}
             {errorMessage && <div className="fail">{errorMessage}</div>}
         
-        <Row className="mb-3 my-3 mx-auto">
-            <Col xs="6">
-            <Form.Group className="mb-2" controlID="formBasicEmail">
+        <Row className="mx-3 my-3">
+            <Col >
+            <Form.Group className="" controlID="formBasicEmail">
                 <Form.Label>Email</Form.Label>
                 <input value={emailValue} onChange={event => setEmailValue(event.target.value)}placeholder="name@email.com" />
             </Form.Group>
             </Col>
         </Row>    
-        <Row className="mb-3 my-3 mx-auto">
-        <Col xs="6">
-            <Form.Group className="mb-2 my-1" sm={3} controlID="formBasicPassword">
+        <Row className="mx-3 my-3">
+        <Col >
+            <Form.Group className=""  controlID="formBasicPassword">
                 <Form.Label>Password</Form.Label>
                 <input value={passwordValue} onChange={event => setPasswordValue(event.target.value)} type="password" placeholder="password" />
             </Form.Group>
         </Col> 
         </Row>
-        <Row className="mb-3 my-3 mx-auto">
-            <Col xs="6">
-            <button variant="primary"  className="mb-2 my-1" disabled={!emailValue || !passwordValue} onClick={onLogInClicked}>Log In</button>
+        <Row className="mx-3 my-3">
+            <Col >
+            <Button variant="primary"  className="" disabled={!emailValue || !passwordValue} onClick={onLogInClicked}>Log In</Button>
             </Col>    
         </Row>   
             
-            <Row className="mx-auto">
-                <Col xs="3">
-                    <button variant="info" onClick={() => navigate.push('/forgot-password')} >Forgot your password?</button>
+            <Row className="mx-3 my-3">
+                <Col >
+                    <Button variant="info" onClick={() => navigate.push('/forgot-password')} >Forgot your password?</Button>
                 </Col>
-                <Col xs="3">
-                    <button variant="primary" onClick={navigateToSignUp}>No account? Sign Up</button>
+                <Col >
+                    <Button variant="primary" onClick={navigateToSignUp}>No account? Sign Up</Button>
                 </Col>
             </Row>
         </Form>
+        </Col>
+        <Col>
+            <Image class="mx-6 my-3 border border-primary fluid" src="../images/womenintech_originalsize.jpg" rounded alt="diverse women in tech" />
+        </Col>
+        </Row>
+        <Footer />
         </>
     );
 }
