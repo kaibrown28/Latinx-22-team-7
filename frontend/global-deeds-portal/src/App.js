@@ -15,6 +15,7 @@ import { Error } from './pages/Error';
 import { StudentProject } from './pages/StudentProject';
 import { StudentProjects } from './pages/StudentProjects';
 import { StudentResources } from './pages/StudentResources';
+import { PortalHome } from './pages/PortalHome';
 
 import { PrivateRoutes } from './auth/PrivateRoutes';
 
@@ -26,13 +27,14 @@ export const App = () => {
             <Routes>
                 <Route path='/' element={<Home />} />
                 <Route path="/login" element={<LogInPage />} />
-                <Route path="/signup" element={<StudentSignUp />} />
+                <Route path="/studentsignup" element={<StudentSignUp />} />
                 <Route path="/companysignup" element={<CompanySignUp />} />
                 <Route path="/error" element={<Error />} />
                 
                 <Route element={<PrivateRoutes/>} >
                     <Route path="/testing" element={<div><h2>testing</h2></div>} />
                     <Route path="/studentprofile" element={<StudentProfilePage />} />
+                    <Route path="/portal" element={<PortalHome />} />
                     <Route path="/studentproject" element={<StudentProject />} />
                     <Route path="/studentprojects" element={<StudentProjects />} />
                     <Route path="/resources" element={<StudentResources/>} />

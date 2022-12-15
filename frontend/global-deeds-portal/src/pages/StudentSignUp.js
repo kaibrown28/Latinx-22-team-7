@@ -80,7 +80,7 @@ export const StudentSignUp = () => {
                     <Button onClick={navigateToLogIn} >Already have an account? Log in.</Button>
                 </Col>
                 <Col>
-                    <Button onClick={navigateToCompanySignUp}>Are you a company? Click here.</Button>
+                    <Button onClick={navigateToCompanySignUp}>Are you a company? Sign Up Here.</Button>
                 </Col>
             </Row>
             

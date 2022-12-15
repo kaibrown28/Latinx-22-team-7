@@ -30,11 +30,11 @@ export const LogInPage = () => {
         });
         const { token } = response.data;
         setToken(token);
-        navigate('/studentprofile');
+        navigate('/portal');
     }
 
-   const navigateToSignUp = () => {
-    navigate('/signup')
+   const navigateToStudentSignUp = () => {
+    navigate('/studentsignup')
    }
 
     return (
@@ -75,7 +75,7 @@ export const LogInPage = () => {
                     <Button variant="info" onClick={() => navigate.push('/forgot-password')} >Forgot your password?</Button>
                 </Col>
                 <Col >
-                    <Button variant="primary" onClick={navigateToSignUp}>No account? Sign Up</Button>
+                    <Button variant="primary" onClick={navigateToStudentSignUp}>No account? Sign Up</Button>
                 </Col>
             </Row>
         </Form>

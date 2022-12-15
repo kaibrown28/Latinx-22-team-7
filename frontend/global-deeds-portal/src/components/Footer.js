@@ -1,11 +1,13 @@
 import Card from 'react-bootstrap/Card';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import NavBar from 'react-bootstrap/NavBar';
 import ListGroup from 'react-bootstrap/ListGroup'
 
 export const Footer = () => {
   return (
-    <Card class="mt-auto text-center bg-primary border border-primary" >
+    
+    <Card class="text-center bg-primary border border-primary" >
       <Card.Body>
         <Row>
             <Col>    
@@ -33,6 +35,7 @@ export const Footer = () => {
         </Row>
       </Card.Body>
     </Card>
+    
   );
 }
 
