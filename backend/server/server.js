@@ -2,8 +2,9 @@
 require("dotenv").config()
 const express = require("express")
 const registerMiddleware = require("../utils/middleware")
-const db = require('../views/queries')
+const db = require('../connection/db.js')
 const app = express()
+
 
 
 //reading .env file

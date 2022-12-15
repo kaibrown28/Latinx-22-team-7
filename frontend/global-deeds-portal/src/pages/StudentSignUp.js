@@ -22,7 +22,7 @@ export const StudentSignUp = () => {
     const navigate = useNavigate();
     
     const onSignUpClicked = async () => {
-       const response = await axios.post('/api/signup', {
+       const response = await axios.post('/signup', {
         email:emailValue,
         password:passwordValue,
        });
