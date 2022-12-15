@@ -11,7 +11,7 @@ router.get("/", isUserLoggedIn, async (request, response) => {
   }
 });
 
-// Create Route "/Resources", creates a new Resources
+// Create Route "/Resources", creates a new Resource
 router.post("/", isUserLoggedIn, async (request, response) => {
   try {
     const Resources = request.context.models.Resources;

@@ -1,64 +1,64 @@
+// New Express Router
 const router = require("express").Router();
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 require("dotenv").config();
 
-//middleware
+// Router Middleware
 
-////////routes//////////
-
-//signup
-router.post("/signup", async (request, response) => {
-    try{
-        //gets the model
-        const User = request.context.models.User;
-        //hashes the password
-        request.body.password = await bcrypt.hash(request.body.password, 10);
-        //creates a new user
-        const user = await User.create(request.body);
-        //respond, then send back a user without password
-        const response = { username: user.username, role: user.role };
-        response.json(response);
-    } catch(error) {
-        response.status(400).json({error});
-    }
+//signup route "/auth/signup"
+router.post("/signup", async (req, res) => {
+  try {
+    // grab model from context
+    const User = req.context.models.User;
+    // hash the password
+    req.body.password = await bcrypt.hash(req.body.password, 10);
+    // create new User
+    const user = await User.create(req.body);
+    // respond, send back user without password
+    const response = { username: user.username, role: user.role };
+    res.json(response);
+  } catch (error) {
+    res.status(400).json({ error });
+  }
 });
 
-//login
-router.post("/login", async (request, response) => {
-    try {
-        console.count("login");
-        //get the model from context
-        const User = request.context.models.User;
-        console.count("login");
-        //get the username and password
-        const { username, password} = request.body;
-        //check if user exists
-        const user = await User.findOne({where: { username} });
-        if (user) {
-            //password check
-        const verifyPassword= await  bcrypt.compare(password, user.password);
-        if (verifyPassword) {
-            // don't send user password
-            const userData = { username: user.username, role: user.role };
-            // sign token
-            const token = jwt.sign(userData, process.env.SECRET);
-            // respond
-            response.cookie("token", token, { httpOnly: true }).json(userData);
-          } else {
-            throw "Passwords do not match";
-          }
-        } else {
-          throw "User Does Not Exist";
-        }
-      } catch (error) {
-        response.status(400).json({ error });
+// login route "/auth/login"
+router.post("/login", async (req, res) => {
+  try {
+    console.count("login");
+    // grab model from context
+    const User = req.context.models.User;
+    console.count("login");
+    // grab username and password
+    const { username, password } = req.body;
+    // see if user exists
+    const user = await User.findOne({ where: { username } });
+    if (user) {
+      // check if password matches
+      const doesItMatch = await bcrypt.compare(password, user.password);
+      if (doesItMatch) {
+        // remove password from user data
+        const userData = { username: user.username, role: user.role };
+        // sign token
+        const token = jwt.sign(userData, process.env.SECRET);
+        // respond
+        res.cookie("token", token, { httpOnly: true }).json(userData);
+      } else {
+        throw "Passwords do not match";
       }
-    });
-
-//logout
-router.checkout("/logout", async (request, response) => {
-        response.clearCookie("token").json({ response: "You are logged out"})
+    } else {
+      throw "User Does Not Exist";
+    }
+  } catch (error) {
+    res.status(400).json({ error });
+  }
 });
 
-module.exports = router; 
+// logout "/auth/logout"
+router.get("/logout", async (req, res) => {
+  res.clearCookie("token").json({ response: "You are Logged Out" });
+});
+
+// Export Router
+module.exports = router;

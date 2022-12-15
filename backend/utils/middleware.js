@@ -21,6 +21,8 @@ const JobsController = require("../controllers/JobsController")
 const ProjectsController = require("../controllers/ProjectsController")
 const ResourcesController = require("../controllers/ResourcesController")
 const StudentController = require("../controllers/StudentController")
+const SignUpController = require("../controllers/SignUpController")
+const LogInController = require("../controllers/LogInController")
 
 // "function to create context property in every request with shared data"
 const applicationContext = (request, response, next) => {
@@ -39,7 +41,9 @@ const registerMiddleware = app => {
     app.use(morgan("tiny"))
     app.use(applicationContext)
     app.use("/home", HomeController)
-    app.use("/", AuthController)
+    app.use("/auth", AuthController)
+    app.use("/login", LogInController)
+    app.use("/signup", SignUpController)
     app.use("/company", CompanyController)
     app.use("/jobs", JobsController)
     app.use("/projects", ProjectsController)
